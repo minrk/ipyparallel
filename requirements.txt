@@ -1,0 +1,2 @@
+-e git+https://github.com/minrk/ipython.git@debug-del#egg=ipython
+-e git+https://github.com/minrk/traitlets.git@debug-del#egg=traitlets

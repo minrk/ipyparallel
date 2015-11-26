@@ -2,9 +2,6 @@
 language: python
 python:
     - 3.5
-    - 3.4
-    - 3.3
-    - 2.7
 sudo: false
 cache:
   directories:
@@ -13,6 +10,7 @@ before_install:
     - git clone --quiet --depth 1 https://github.com/minrk/travis-wheels travis-wheels
 install:
     - pip install -f travis-wheels/wheelhouse . coveralls
+    - pip install -r requirements.txt
 script:
     - iptest --coverage xml ipyparallel.tests
 after_success:
