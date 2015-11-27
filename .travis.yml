@@ -9,8 +9,9 @@ cache:
 before_install:
     - git clone --quiet --depth 1 https://github.com/minrk/travis-wheels travis-wheels
 install:
-    - pip install -f travis-wheels/wheelhouse . coveralls
-    - pip install -r requirements.txt
+    - pip install -f travis-wheels/wheelhouse --pre . coveralls
+    - pip list
+    # - pip install -r requirements.txt
 script:
     - iptest --coverage xml ipyparallel.tests
 after_success:
