@@ -444,6 +444,7 @@ class Client(HasTraits):
         if location is not None and addr == localhost():
             # location specified, and connection is expected to be local
             location_ip = util.ip_for_host(location)
+            # fix the hostname check
             if not is_local_ip(location_ip) and not sshserver:
                 # load ssh from JSON *only* if the controller is not on
                 # this machine
