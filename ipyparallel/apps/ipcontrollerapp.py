@@ -406,9 +406,14 @@ class IPControllerApp(BaseParallelApplication):
                             log_url = self.log_url, config=dict(self.config))
             if 'Process' in self.mq_class:
                 # run the Python scheduler in a Process
-                q = Process(target=launch_scheduler, args=sargs, kwargs=kwargs)
-                q.daemon=True
-                children.append(q)
+                print("# manually launch the scheduler:")
+                print(f"args={sargs}\nkwargs={kwargs}")
+                print("from ipyparallel.controller.scheduler import launch_scheduler")
+                print("launch_scheduler(*args, **kwargs)")
+
+                # q = Process(target=launch_scheduler, args=sargs, kwargs=kwargs)
+                # q.daemon=True
+                # children.append(q)
             else:
                 # single-threaded Controller
                 kwargs['in_thread'] = True
